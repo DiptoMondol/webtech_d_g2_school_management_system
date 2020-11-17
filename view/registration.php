@@ -37,12 +37,14 @@
 					Confirm Password<br/><input type ="password" name ="cpass"><br/>
 					
 					User Type<hr/>
-					<input type="radio" name="user" value="User"/>User
-					<input type="radio" name ="user" value="Admin"/>Admin
+					<input type="radio" name="user" value="Admin"/>Admin
+					<input type="radio" name="user" value="Teacher"/>Teacher
+					<input type="radio" name="user" value="Student"/>Student
+					<input type="radio" name ="user" value="Parent"/>Parent
 					<hr/>
-					Gender<br/>male<input type="radio" name="gender" value="Male">
-					           female<input type="radio" name="gender" value ="Female">
-					           others<input type="radio" name="gender" value ="Others">
+					Gender<br/><input type="radio" name="gender" value="Male">male
+					           <input type="radio" name="gender" value ="Female">female
+					           <input type="radio" name="gender" value ="Others"> others
 					<br/>
 					phone<br/><input type="text" name="phone"><br/>
 					<input type="submit" name="submit" value="Sign Up">

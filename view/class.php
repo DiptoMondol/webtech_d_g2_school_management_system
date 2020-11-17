@@ -12,10 +12,9 @@ if(isset($_SESSION['id']))
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
 	<title>Class Page</title>
-	<link rel="stylesheet" href="">
+	
 </head>
 <body>
 	<select>
@@ -24,7 +23,7 @@ if(isset($_SESSION['id']))
 		<option value="Class-C">Class-C</option>
 		<option value="Class-D">Class-D</option>
 	</select>
-	<table border="1">
+	<table border="1" cellspacing="0">
 		<tr>
 			<th>#SI</th>
 			<th>Name</th>
@@ -38,14 +37,14 @@ if(isset($_SESSION['id']))
 			<th>Action</th>
 		</tr>
 		<tr>
-			<td>Jill</td>
-			<td>Smith</td>
-			<td>50</td>
-			<td>50</td>
-			<td>50</td>
-			<td>50</td>
-			<td>50</td>
-			<td>50</td>
+			<td>1</td>
+			<td>Dipto</td>
+			<td>17-34833-2</td>
+			<td>A</td>
+			<td>23</td>
+			<td>dipto@gmail.com</td>
+			<td>Male</td>
+			<td>01734103280</td>
 			<td><input type="text" name="mark" placeholder="mark ex.100"></td>
 			<td>
 				<button>Delete</button>
@@ -53,14 +52,44 @@ if(isset($_SESSION['id']))
 			</td>
 		</tr>
 		<tr>
-			<td>Jill</td>
-			<td>Smith</td>
-			<td>50</td>
-			<td>50</td>
-			<td>50</td>
-			<td>50</td>
-			<td>50</td>
-			<td>50</td>
+			<td>2</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><input type="text" name="mark" placeholder="mark ex.100"></td>
+			<td>
+				<button>Delete</button>
+
+			</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><input type="text" name="mark" placeholder="mark ex.100"></td>
+			<td>
+				<button>Delete</button>
+
+			</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
 			<td><input type="text" name="mark" placeholder="mark ex.100"></td>
 			<td>
 				<button>Delete</button>

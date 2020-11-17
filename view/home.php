@@ -6,7 +6,7 @@
 
 	<table width="900px" border="1" align="center" cellspacing="0">
 		<tr>
-			<td width="100px"><img src="../assets/f.jpg" width="100px" height="100px"></td>
+			<td width="100px"><img src="../assets/f.jpg" width="150px" height="150px"></td>
 			
 			<td colspan="2" align="center">
 			  <h2> <b>School Management System</b></h2>

@@ -17,14 +17,14 @@ if(isset($_REQUEST['submit'])){
 		if($user_info[3] == $id and $user_info[2] == $password){
 			session_start();
 			$_SESSION['id'] = $id;
-			header('location: ../view/admin_home.php');
+			header('location: ../view/teacher_home.php');
 		
 	}else{
 		header('location: ../view/index.php?msg=invalid');
 	}
 }
 }else{
-	header('location: ../view/login.php');
+	header('location: ../view/index.php');
 }
 
 
