@@ -14,7 +14,7 @@ if(isset($_REQUEST['submit'])){
 	}else{
 
 
-		if($user_info[3] == $id and $user_info[2] == $password){
+		if($user_info[2] == $id and $user_info[3] == $password){
 			session_start();
 			$_SESSION['id'] = $id;
 			header('location: ../view/teacher_home.php');

@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <html>
 <head></head>
 
@@ -13,14 +9,18 @@ session_start();
 		<tr >
 			<td >
 				<fieldset >
-					<legend><h3>LOGIN</h3></legend>
-					User Id<br/>
-					<input type="text" name="id"><br/>                               
-					Password<br/>
+					<legend><h3>Forgot Password</h3></legend>	                      
+					Previous Password<br/>
 					<input type="password" name="password">
 					<br /><hr/>
-					<input type="submit" value="Login" name="submit">
-					<a href="registration.php">Register</a>
+					New Password<br/>
+					<input type="password" name="password">
+					<br /><hr/>
+					Confirm Password<br/>
+					<input type="password" name="password">
+					<br /><hr/>
+					<input type="submit" value="submit" name="submit">
+					
 				</fieldset>
 			</td>
 		</tr>                                

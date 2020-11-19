@@ -31,6 +31,7 @@ if(isset($_SESSION['id']))
 			<th>Section</th>
 			<th>Age</th>
 			<th>Email</th>
+			<th>Parent Email</th>
 			<th>Gender</th>
 			<th>phone</th>
 			<th>Grade</th>
@@ -43,6 +44,7 @@ if(isset($_SESSION['id']))
 			<td>A</td>
 			<td>23</td>
 			<td>dipto@gmail.com</td>
+			<td>samapti@gmail.com</td>
 			<td>Male</td>
 			<td>01734103280</td>
 			<td><input type="text" name="mark" placeholder="mark ex.100"></td>
@@ -53,6 +55,7 @@ if(isset($_SESSION['id']))
 		</tr>
 		<tr>
 			<td>2</td>
+			<td></td>
 			<td></td>
 			<td></td>
 			<td></td>
@@ -75,6 +78,7 @@ if(isset($_SESSION['id']))
 			<td></td>
 			<td></td>
 			<td></td>
+			<td></td>
 			<td><input type="text" name="mark" placeholder="mark ex.100"></td>
 			<td>
 				<button>Delete</button>
@@ -83,6 +87,7 @@ if(isset($_SESSION['id']))
 		</tr>
 		<tr>
 			<td>4</td>
+			<td></td>
 			<td></td>
 			<td></td>
 			<td></td>

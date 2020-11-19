@@ -14,7 +14,7 @@ if(isset($_SESSION['id']))
 <head>
 	
 	<title>Notice</title>
-	<link rel="stylesheet" href="">
+	
 </head>
 <body>
 	<center>
@@ -27,7 +27,7 @@ if(isset($_SESSION['id']))
 				<option value="Class-D">Class-D</option>
 			</select><br>
 			<textarea name="notice" id="" cols="30" rows="10" placeholder="notice"></textarea><br>
-			<input type="submit" name="notice" value="Notice">
+			<input type="submit" name="notice" value="Send">
 		</form>
 	</center>
 </body>
