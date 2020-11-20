@@ -45,7 +45,7 @@
 			<td width="600px">
 				<fieldset>
 					<legend><h3>REGISTRATION</h3></legend>
-					Name<br/><input type="text" name ="name"><?php echo $nameError;?><br/>
+					Name<br/><input type="text" name ="name"><?php echo $nameError;?><?php echo $nameValid ;?><br/>
 					<hr>
 					Email<br/><input type="text" name ="email"><?php echo $emailErr;?><br/>
 					<hr>
