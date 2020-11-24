@@ -17,6 +17,10 @@ if(isset($_SESSION['id']))
 	
 </head>
 <body>
+	<table width="800px" border="1" align="center">
+		 <?php include 'header.php';?>
+    <td>
+    <center>
 	<select>
 		<option value="Class-A">Class-A</option>
 		<option value="Class-B">Class-B</option>
@@ -67,7 +71,39 @@ if(isset($_SESSION['id']))
 			<td>P</td>
 			<td></td>
 			</td>
+		</tr><tr>
+			<td>4</td>
+			<td>Rana</td>
+			<td>17-34561-2</td>
+			<td>rana@gmail.com</td>
+			<td>01734103280</td>
+			<td>P</td>
+			<td></td>
+			</td>
 		</tr>
-	</table> 
+		<tr>
+			<td>5</td>
+			<td>Foyaz</td>
+			<td>17-34563-2</td>
+			<td>foyaz@gmail.com</td>
+			<td>01734103280</td>
+			<td></td>
+			<td>A</td>
+			</td>
+		</tr>
+		tr>
+			<td>6</td>
+			<td>Himel</td>
+			<td>17-34962-2</td>
+			<td>foyaz@gmail.com</td>
+			<td>01734103280</td>
+			<td></td>
+			<td>A</td>
+			</td>
+		</tr>
+	 </table>
+	</td>
+   </center>
+   </table> 
 </body>
 </html>

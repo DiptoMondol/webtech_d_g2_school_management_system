@@ -17,7 +17,10 @@ if(isset($_SESSION['id']))
 	
 </head>
 <body>
-	<h1 align="center">Email for Student</h1>
+	<table width="800px" border="1" align="center">
+		 <?php include 'header.php';?>
+	<td>
+	<center>
 	<center>
 	<select>
 		<option value="Class-A">Class-A</option>
@@ -49,5 +52,8 @@ if(isset($_SESSION['id']))
 			
 	</table>
 	</center> 
+   </center>
+   </td>
+  </table>
 </body>
 </html>

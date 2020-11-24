@@ -17,6 +17,9 @@ if(isset($_SESSION['id']))
 	
 </head>
 <body>
+	<table width="1000px" border="1" align="center">
+		 <?php include 'header.php';?>
+	<td>
 	<select>
 		<option value="Class-A">Class-A</option>
 		<option value="Class-B">Class-B</option>
@@ -33,7 +36,7 @@ if(isset($_SESSION['id']))
 			<th>Email</th>
 			<th>Parent Email</th>
 			<th>Gender</th>
-			<th>phone</th>
+			<th>Phone</th>
 			<th>Grade</th>
 			<th>Action</th>
 		</tr>
@@ -101,6 +104,8 @@ if(isset($_SESSION['id']))
 
 			</td>
 		</tr>
-	</table> 
+	</table>
+  </td>
+  </table>
 </body>
 </html>

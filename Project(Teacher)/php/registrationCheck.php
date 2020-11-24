@@ -14,6 +14,7 @@
 		  $userError ="";
 		  $numberrError ="";
 		  $nameValid="";
+		  $count ="";
 		  
 		  
 		if (isset($_POST['submit']))
@@ -54,6 +55,7 @@
                   }
 		
 		   $pos =strpos($email, '@');
+		   $pos2 = strpos($email,'gmail');
 		   $pos1 = strpos($email, ".com");
 
 		   if($email == NULL)
@@ -61,7 +63,7 @@
 			$emailErr =  "empty email field!";
 		   }
 
-		   elseif ($pos!=False && $pos1!=False && $pos1 > $pos) {
+		   elseif ($pos!=False && $pos1!=False && $pos1 > $pos && $pos1 > $pos2 && $pos2>$pos) {
 				  
 					 $email;
 		   }
@@ -78,42 +80,45 @@
 		{
 			$passError = "Set the Password";
 		}
+		elseif(strlen($pass)<6){
+            $passError="Password must be 6 characters long.";
+        }
+        elseif(strcmp(strtoupper($pass),$pass)==0 && strcmp(strtolower($pass),$pass)==0){
+            $passError="Password must contain 1 Upper and Lowercase letter.";
+        }
 		
 		if (empty($cPass))
 		{
 			$cPassError = "Set the Confirm Password";
 		}
 		
-		else{
-			echo $validPass = "";
-		}
-		if($pass != $cPass)
+		elseif($pass != $cPass)
 		{
-			$validPass = "password doesnot match";
+			$cPassError = "password doesnot match";
 		}
 		
 		if (empty($_POST["user"]))
 		{
-			$userError = "Seclect the User";
+			$userError = "Select the User";
 		}
 		
 		if (empty($_POST["gender"]))
 		{
-			$genderError = "Seclect the Gender";
+			$genderError = "Select the Gender";
 		}
 		
-		if(isset($phone))
+	    if(isset($phone))
+			
 			{
-				 
-				 $filtered_phone_number = filter_var($phone, FILTER_SANITIZE_NUMBER_INT);
-				 $phone_to_check = str_replace("-", "", $filtered_phone_number);				 
-				 if (strlen($phone_to_check) == 11) {
-					$phonePut = $phone;
-					
-				 }
-				  else {
-				  $noError = "you have to put valid phone Number";
-				 }
+			$count = strlen($phone);
+			
+			if($count=="11")
+			{
+				$phone;
+			}
+			else{
+				 $noError ="invalid";
+			}
 			}
 		
 		if (empty($phone))

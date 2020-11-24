@@ -1,11 +1,17 @@
 <?php
 session_start();
+if(isset($_SESSION['id']))
+
+{
+	header('Location:teacher_home.php');
+}
 ?>
 
 <html>
 <head></head>
 
 <body>
+	
 
 <center>
 <form method="post" action="../php/loginCheck.php">

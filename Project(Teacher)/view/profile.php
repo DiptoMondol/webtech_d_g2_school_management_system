@@ -1,1 +1,96 @@
-<html><head></head><body><center>	<table width="500px" height="300px" border="1" cellpadding="5" cellspacing="0">	    <tr><td  colspan="2" align="CENTER">School Management System</td></tr>		<tr><td  colspan="2" align="CENTER">Profile</td></tr>		<tr><td name ="text">ID</td><td>16-10000-2</tr>		<tr><td name ="name">NAME</td><td>Dipto</td></tr>			<tr><td>USER TYPE</td><td>Teacher</td></tr>		<tr><td colspan="2" align="right"><h4><a href="home.php">Go Home</a></h4></td></tr>	</table>			</center></body></html>
+<?php
+   session_start();
+	if(isset($_SESSION['id']))
+	{
+		$id = $_SESSION['id'];
+	}else {
+		header("location:index.php");
+	}
+        $myfile = fopen("registrationfile.txt", "r");
+        $readfile = fread($myfile, filesize("registrationfile.txt"));
+        $data = explode("|", $readfile);
+?>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Teacher Profile</title>
+	</head>
+	<body>
+		
+			<table width="1000px" border="1" align="center">	
+				<?php include 'header.php';?>
+						<td width ="800px" height ="500px">
+							
+								<legend>Profile</legend>	
+									<table align="center">
+										
+										<tr>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td align="right"><img width="200px" src="../assets/f2.jpg" alt="Profile picture" /></td>
+											<td><input type="file" value="picture"><br>
+											Change Profile Picture</td>
+										</tr>
+										<tr>
+		
+											<td>User Id:</td>
+											<td><?php echo $data[2];?></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td colspan="3"><hr></td>
+										</tr>
+										<tr>
+											<td>Name:</td>
+											<td><?php echo $data[0];?></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td colspan="3"><hr></td>
+										</tr>
+										<tr>
+											<td>Email:</td>
+											<td><?php echo $data[1];?></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td colspan="3"><hr></td>
+										</tr>
+										<tr>
+											<td>Gender:</td>
+											<td><?php echo $data[5];?></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td colspan="3"><hr></td>
+										</tr>
+										<tr>
+											<td>Phone:</td>
+											<td><?php echo $data[6];?></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td colspan="3"><hr></td>
+										</tr>
+										<tr>
+											<td><a href="editProfile.php">Edit Profile</a></td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>											
+									</table>	
+							
+						</td>
+					</tr>
+					
+			</table>
+					
+			
+	</body>
+</html>

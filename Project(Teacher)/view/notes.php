@@ -17,6 +17,10 @@
 	
 </head>
 <body>
+ <table width="800px" border="1" align="center">
+ 	<?php include 'header.php';?>
+ 	<td>
+ 	<center>
 	<h1>Notes For Students</h1>
 	<select>
 		<option value="Class-A">Class-A</option>
@@ -40,6 +44,9 @@
 	
 	    </form>
 			
-	   </table>
+	    </table>
+	   </center>
+	 </td>
+   </table>
 </body>
 </html>

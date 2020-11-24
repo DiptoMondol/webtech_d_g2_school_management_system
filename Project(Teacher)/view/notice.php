@@ -17,8 +17,10 @@ if(isset($_SESSION['id']))
 	
 </head>
 <body>
-	<center>
-		<h1>Notice For Students</h1>
+	<table width="1000px" border="1" align="center">
+		 <?php include 'header.php';?>
+	<td>
+		<h1 align="center">Notice For Students</h1>
 		<form method="" align = "center">
 			<select>
 				<option value="Class-A">Class-A</option>
@@ -29,6 +31,7 @@ if(isset($_SESSION['id']))
 			<textarea name="notice" id="" cols="30" rows="10" placeholder="notice"></textarea><br>
 			<input type="submit" name="notice" value="Send">
 		</form>
-	</center>
+	</td>
+  </table>
 </body>
 </html>

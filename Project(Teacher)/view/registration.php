@@ -1,5 +1,5 @@
 <?php
-	include('../validation/registrationCheck.php');
+	include('../php/registrationCheck.php');
 	session_start();
 	//$validPass="";
 	$error="";
@@ -8,15 +8,16 @@
 		
 		
     if(isset($_REQUEST['submit'])){	
+	
 		
-        if(!empty($_REQUEST['name']) || !empty($_REQUEST['password']) || !empty($_REQUEST['cpassword']) || !empty($_REQUEST['gender']) || !empty($_REQUEST['phone']) || !empty($_REQUEST['email'])  ||  !empty($_REQUEST['id']) ||  !empty($_REQUEST['user'])){
+        if(!empty($_REQUEST['name']) && !empty($_REQUEST['password']) && !empty($_REQUEST['cpassword']) && !empty($_REQUEST['gender']) && !empty($_REQUEST['phone']) && !empty($_REQUEST['email'])  &&  !empty($_REQUEST['id']) &&  !empty($_REQUEST['user'])){
 			if($pass == $cPass){
 			
-			$dip = $_REQUEST['gender'];
-			$us = $_REQUEST['user'];
+			//$dip = $_REQUEST['gender'];
+			//$us = $_REQUEST['user'];
 				
-            $info = $_REQUEST['name']."|". $_REQUEST['email']."|".$_REQUEST['id']."|".$_REQUEST['password']. "|".$_REQUEST['cpassword']."|".$dip."|".$user."|".$_REQUEST['phone']."\n";
-            $myfile = fopen("registrationfile.txt", "w");
+            $info = $_REQUEST['name']."|". $_REQUEST['email']."|".$_REQUEST['id']."|".$_REQUEST['password']. "|".$_REQUEST['cpassword']."|".$_REQUEST['gender']."|".$_REQUEST['phone']."\n";
+            $myfile = fopen("registrationfile.txt", "a");
             fwrite($myfile, $info);
             fclose($myfile);
             echo "Registration successfully done!";   
@@ -51,18 +52,17 @@
 					<hr>
 					Id<br/><input type="text" name="id"><?php echo $userIdError;?><br/>
 					<hr>
-					Password<br/><input type="password" name ="password"><?php echo $passError;
-																				echo $validPass?><br/>
+					Password<br/><input type="password" name ="password"><?php echo $passError;?><br/>
                     <hr>																				 
 					Confirm Password<br/><input type ="password" name ="cpassword"><?php echo $cPassError;?><br/>
 					<hr>
 					User Type
 					<input type="radio" name="user" value="Admin"/ >Admin
-					<input type="radio" name="user" value="Teacher"/ checked>Teacher
+					<input type="radio" name="user" value="Teacher"/ >Teacher
 					<input type="radio" name="user" value="Student"/>Student
 					<input type="radio" name ="user" value="Parent"/>Parent<?php echo $userError;?><br/>
 					<hr/>
-					Gender<br/><input type="radio" name="gender" value="Male" checked>male
+					Gender<br/><input type="radio" name="gender" value="Male" >male
 					           <input type="radio" name="gender" value ="Female">female
 					           <input type="radio" name="gender" value ="Others"> others<?php echo $genderError;?><br/>
 					<hr/>

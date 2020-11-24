@@ -3,18 +3,18 @@
 	<title>Index Page</title>
 </head>
 <body>
-
+<center>
 	<table width="900px" border="1" align="center" cellspacing="0">
 		<tr>
-			<td width="100px"><img src="../assets/f.jpg" width="150px" height="150px"></td>
+			<td width="100px"><img src="assets/f5.jpg" width="130px" height="130px"></td>
 			
 			<td colspan="2" align="center">
 			  <h2> <b>School Management System</b></h2>
 				<a href="home.php">HOME</a> | 
-				<a href="contact.php">CONTACT</a> | 
-				<a href="registration.php">REGISTRATION</a> | 
-				<a href="index.php">LOGIN</a> | 
-				<a href="about.php">ABOUT</a> 
+				<a href="">CONTACT</a> | 
+				<a href="view/registration.php">REGISTRATION</a> | 
+				<a href="view/index.php">LOGIN</a> | 
+				<a href="">ABOUT</a> 
 			</td>
 		</tr>
 		<tr height="400px">
@@ -44,5 +44,6 @@
 			</td>
 		</tr>
 	</table>
+	</center>
 </body>
 </html>
