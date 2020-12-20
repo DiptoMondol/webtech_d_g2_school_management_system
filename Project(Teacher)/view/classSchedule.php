@@ -7,88 +7,71 @@ if(isset($_SESSION['id']))
 }else {
 	header("location:index.php");
 }
-	//session ends
+include ('../model/db.php');
+$connection = new db();
+$conobj=$connection->OpenCon();
+global $result;
+
+
+
+
+
+		
+
+	$sql = "SELECT * FROM classschedule";
+	$result = $conobj->query($sql);
+	
+
+	$connection->CloseCon($conobj); 
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Class Schedule</title>
+	
+	<title>Class Page</title>
+	
 </head>
 <body>
-	<table width="800px" border="1" align="center">
+	<form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	<table width="1000px" border="1" align="center">
 		 <?php include 'header.php';?>
 	<td>
-	<table border="1" cellspacing="0" align="center">
-		<tr>
+    
+	<table border=1 cellspacing="0">
+	    <thead>
 			<th>Course</th>
 			<th>Day</th>
 			<th>Time</th>
 			<th>Section</th>
 			
-		</tr>
-		<tr>
-			<td>Bangla</td>
-			<td>Sunday-Tuesday</td>
-			<td>9-11</td>
-			<td>A</td>
+		</thead>
+		 <tbody>    
 			
-			</td>
-		</tr>
-		<tr>
-			<td>Bangla</td>
-			<td>Monday-Wednessday</td>
-			<td>11-2</td>
-			<td>B</td>
-			
-			</td>
-		</tr>
-		<tr>
-			<td>Bangla</td>
-			<td>Monday-Wednessday</td>
-			<td>2-4</td>
-			<td>B</td>
-			
-			</td>
-		</tr>
-		<tr>
-			<td>Bangla</td>
-			<td>Sunday-Tuesday</td>
-			<td>11-2</td>
-			<td>B</td>
-			
-			</td>
-		</tr>
-		<tr>
-			<td>Bangla</td>
-			<td>Sunday-Tuesday</td>
-			<td>2-4</td>
-			<td>E</td>
-			
-			</td>
-		</tr>
-		<tr>
-			<td>Bangla</td>
-			<td>Sunday-Tuesday</td>
-			<td>9-11</td>
-			<td>C</td>
-			
-			</td>
-		</tr>
-		<tr>
-			<td>Bangla</td>
-			<td>Sunday-Tuesday</td>
-			<td>11-2</td>
-			<td>D</td>
-			
-			</td>
-		</tr>
+				<?php
+				
+					if ($result->num_rows > 0) {
 		
-		
-
+		        while($row = $result->fetch_assoc()) {
+			  
+			 echo "<tr>";
+			echo "<td>$row[course]</td> 
+			      <td>$row[day]</td>
+			      <td>$row[time]</td>
+			      <td>$row[section]</td>";
+			echo "</tr>";
 			
+	        }
+			
+		        }
+				 
+				?>
+			
+		</tbody>
 	</table>
   </td>
- </table>
+  </table>
+  </form>
 </body>
 </html>
 

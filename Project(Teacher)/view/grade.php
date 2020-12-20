@@ -7,7 +7,17 @@ if(isset($_SESSION['id']))
 }else {
 	header("location:index.php");
 }
-	//session ends
+include ('../model/db.php');
+$connection = new db();
+$conobj=$connection->OpenCon();
+global $result;
+
+	$sql = "SELECT * FROM grade";
+	$result = $conobj->query($sql);
+	
+
+	$connection->CloseCon($conobj); 
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,90 +27,47 @@ if(isset($_SESSION['id']))
 	
 </head>
 <body>
-	<table width="800px" border="1" align="center">
+	<form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	<table width="1000px" border="1" align="center">
 		 <?php include 'header.php';?>
+	<td>
+    
+	<table border=1 cellspacing="0">
+	    <thead>
+			<th>#SI</th>
+			<th>Name</th>
+			<th>Id</th>
+			<th>Grade</th>
+			<th>Action</th>
 			
-			<td>
-				<form>
-					<fieldset>
-						<select>
-							<option value="Class-A">Class-A</option>
-							<option value="Class-B">Class-B</option>
-							<option value="Class-C">Class-C</option>
-							<option value="Class-D">Class-D</option>
-						</select>
-						<table border="1" cellspacing="0" cellpadding="5" align="center">
-								<tr>
-								<th>#SI</th>
-								<th>Name</th>
-								<th>Id</th>
-								<th>Section</th>
-								<th>80-100(A+)</th>
-								<th>70-79(A)</th>
-								<th>60-69(A-)</th>
-								<th>50-59(B)</th>
-								
-								<th>Action</th>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>Dipto</td>
-								<td>17-34833-2</td>
-								<th>A</th>
-								<th>81</th>
-								<th></th>
-								<th></th>
-								<th></th>
-								<td>
-									<button>Delete</button>
-
-								</td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Reza</td>
-								<td>17-34632-2</td>
-								<th>B</th>
-								<th>81</th>
-								<th></th>
-								<th></th>
-								<th></th>
-								<td>
-									<button>Delete</button>
-
-								</td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>RIDU</td>
-								<td>17-35643-2</td>
-								<th>A</th>
-								<th></th>
-								<th>75</th>
-								<th></th>
-								<th></th>
-								<td>
-									<button>Delete</button>
-
-								</td>
-								<tr>
-								<td>3</td>
-								<td>RIDU</td>
-								<td>17-34833-2</td>
-								<th>A</th>
-								<th>81</th>
-								<th></th>
-								<th></th>
-								<th></th>
-								<td>
-									<button>Delete</button>
-
-								</td>
-			            </table>
-			    </fieldset>
-			       </form>
-			  </td>
-			</tr>
-	</table> 
+		</thead>
+		 <tbody>    
+			
+				<?php
+				
+					if ($result->num_rows > 0) {
+		
+		        while($row = $result->fetch_assoc()) {
+			  
+			 echo "<tr>";
+			echo "<td>$row[serial]</td> 
+			      <td>$row[name]</td>
+			      <td>$row[id]</td>
+			      <td>$row[grade]</td>
+				  <td><a href=../control/deleteReaderInfoCheck.php?id=$row[id]>Delete</a><br></td>";
+			echo "</tr>";
+			
+	        }
+			
+		        }
+				 
+				?>
+			
+		</tbody>
+	</table>
+  </td>
+  </table>
+  </form>
 </body>
 </html>
+

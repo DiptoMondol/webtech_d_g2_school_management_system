@@ -1,5 +1,6 @@
 <?php
-session_start();
+include('../php/logincheck.php');
+//session_start();
 if(isset($_SESSION['id']))
 
 {
@@ -14,7 +15,7 @@ if(isset($_SESSION['id']))
 	
 
 <center>
-<form method="post" action="../php/loginCheck.php">
+<form method="post" action="">
 	<table border="0" cellspacing="0" cellpadding="0" width="30%" >
 		<tr >
 			<td >
@@ -25,6 +26,7 @@ if(isset($_SESSION['id']))
 					Password<br/>
 					<input type="password" name="password">
 					<br /><hr/>
+					<?php echo  $error;?><br>
 					<input type="submit" value="Login" name="submit">
 					<a href="registration.php">Register</a><br>
 					<a href="forgotPassword.php">Forgot Password</a>

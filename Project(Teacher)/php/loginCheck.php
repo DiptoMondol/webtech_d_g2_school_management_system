@@ -1,30 +1,35 @@
 <?php
+include('../model/db.php');
+session_start(); 
 
-
-if(isset($_REQUEST['submit'])){
-	$id = $_REQUEST['id'];
-	$password = $_REQUEST['password'];
-	$myfile = fopen("../view/registrationfile.txt", "r");
-	$readfile = fread($myfile, filesize("../view/registrationfile.txt"));
-	$user_info = explode("|", $readfile);
-	if(empty($id) || empty($password)){
-
-
-		header('location: ../view/index.php?msg=null');
-	}else{
-
-
-		if($user_info[2] == $id and $user_info[3] == $password){
-			session_start();
-			$_SESSION['id'] = $id;
-			header('location: ../view/teacher_home.php');
-		
-	}else{
-		header('location: ../view/index.php?msg=invalid');
-	}
+ $error="";
+// store session data
+if (isset($_POST['submit'])) {
+if (empty($_POST['id']) || empty($_POST['password'])) {
+$error = "UserID or Password is invalid";
 }
-}else{
-	header('location: ../view/index.php');
+else
+{
+$id=$_POST['id'];
+$password=$_POST['password'];
+
+
+$connection = new db();
+$conobj=$connection->OpenCon();
+
+$userQuery=$connection->checkUser($conobj,"teacherinfo",$id,$password);
+
+if ($userQuery->num_rows > 0) {
+$_SESSION["id"] = $id;
+$_SESSION["password"] = $password;
+
+   }
+ else {
+$error = "Username or Password is invalid";
+}
+$connection->CloseCon($conobj);
+
+}
 }
 
 

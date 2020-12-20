@@ -1,37 +1,11 @@
 <?php
 	include('../php/registrationCheck.php');
-	session_start();
-	//$validPass="";
-	$error="";
-	$dip="";
-	$us="";
-		
-		
-    if(isset($_REQUEST['submit'])){	
-	
-		
-        if(!empty($_REQUEST['name']) && !empty($_REQUEST['password']) && !empty($_REQUEST['cpassword']) && !empty($_REQUEST['gender']) && !empty($_REQUEST['phone']) && !empty($_REQUEST['email'])  &&  !empty($_REQUEST['id']) &&  !empty($_REQUEST['user'])){
-			if($pass == $cPass){
-			
-			//$dip = $_REQUEST['gender'];
-			//$us = $_REQUEST['user'];
-				
-            $info = $_REQUEST['name']."|". $_REQUEST['email']."|".$_REQUEST['id']."|".$_REQUEST['password']. "|".$_REQUEST['cpassword']."|".$_REQUEST['gender']."|".$_REQUEST['phone']."\n";
-            $myfile = fopen("registrationfile.txt", "a");
-            fwrite($myfile, $info);
-            fclose($myfile);
-            echo "Registration successfully done!";   
-        }
-        
-		}
-        else{
-            $error = "Check and fill up the all field!";
-            
-        }
-		
-    
-		
-		
+	include('../php/registerinsert.php');
+
+	if(isset($_SESSION['name']))
+	{
+	header('Location: formSuccessfull.php');
+	//echo "your are successfully registered";
 	}
 ?>
 

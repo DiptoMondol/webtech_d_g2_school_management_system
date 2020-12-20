@@ -7,52 +7,65 @@ if(isset($_SESSION['id']))
 }else {
 	header("location:index.php");
 }
-	//session ends
-?>
+include ('../model/db.php');
+$connection = new db();
+$conobj=$connection->OpenCon();
+global $result;
 
+	$sql = "SELECT * FROM salary";
+	$result = $conobj->query($sql);
+	
+
+	$connection->CloseCon($conobj); 
+
+?>
+<!DOCTYPE html>
 <html>
 <head>
+	
+	<title>Salary History Page</title>
+	
 </head>
-<title>Salary</title>
 <body>
-<table width="700px" border="1" align="center">
+	<form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	<table width="1000px" border="1" align="center">
 		 <?php include 'header.php';?>
-<td>
-<center>
-<form >
-	<table cellspacing="0" width="40%"  border="1">
-		<tr>
-			<td colspan="3" align="center"><h2>Salary History</h2></td>
-		</tr>
-		<tr >
+	<td>
+    
+	<table border=1 cellspacing="0">
+	    <thead>
 			<th>Year</th>
 			<th>Month</th>
 			<th>Salary</th>
-		</tr> 
-		<tr >
-			<th>2020</th>
-			<th>June</th>
-			<th >22000</th>
-		</tr>
-		<tr >
-			<th>2020</th>
-			<th>July</th>
-			<th >22000</th>
-		</tr>
-		<tr >
-			<th>2020</th>
-			<th>Auguest</th>
-			<th >25000</th>
-		</tr>
-		<tr >
-			<th>2020</th>
-			<th>September</th>
-			<th >25000</th>
-		</tr>
+			<th>Withdraw</th>
+		</thead>
+		 <tbody>    
+			
+				<?php
+				
+					if ($result->num_rows > 0) {
+		
+		        while($row = $result->fetch_assoc()) {
+			  
+			 echo "<tr>";
+			echo "<td>$row[year]</td> 
+			      <td>$row[month]</td>
+			      <td>$row[salary]</td>
+			      <td>$row[withdraw]</td>";
+				  
+			echo "</tr>";
+			
+	        }
+			
+		        }
+				 
+				?>
+			
+		</tbody>
 	</table>
-</form>
-</center>
-</td>
-</table>
+  </td>
+  </table>
+  </form>
 </body>
 </html>
+

@@ -1,14 +1,15 @@
 <?php
+	global $id;
    session_start();
 	if(isset($_SESSION['id']))
 	{
+		
 		$id = $_SESSION['id'];
 	}else {
 		header("location:index.php");
 	}
-        $myfile = fopen("registrationfile.txt", "r");
-        $readfile = fread($myfile, filesize("registrationfile.txt"));
-        $data = explode("|", $readfile);
+	include('../php/profileCheck.php');
+       
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -35,7 +36,7 @@
 										<tr>
 		
 											<td>User Id:</td>
-											<td><?php echo $data[2];?></td>
+											<td><?php echo $id;?></td>
 											<td></td>
 											<td></td>
 										</tr>
@@ -44,7 +45,7 @@
 										</tr>
 										<tr>
 											<td>Name:</td>
-											<td><?php echo $data[0];?></td>
+											<td><?php  echo $name;?></td>
 											<td></td>
 											<td></td>
 										</tr>
@@ -53,7 +54,16 @@
 										</tr>
 										<tr>
 											<td>Email:</td>
-											<td><?php echo $data[1];?></td>
+											<td><?php echo $email;?></td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td colspan="3"><hr></td>
+										</tr>
+										<tr>
+											<td>User Type:</td>
+											<td><?php echo $usertype; ?></td>
 											<td></td>
 											<td></td>
 										</tr>
@@ -62,7 +72,7 @@
 										</tr>
 										<tr>
 											<td>Gender:</td>
-											<td><?php echo $data[5];?></td>
+											<td><?php echo $gender; ?></td>
 											<td></td>
 											<td></td>
 										</tr>
@@ -71,7 +81,7 @@
 										</tr>
 										<tr>
 											<td>Phone:</td>
-											<td><?php echo $data[6];?></td>
+											<td><?php echo $phone; ?></td>
 											<td></td>
 											<td></td>
 										</tr>
