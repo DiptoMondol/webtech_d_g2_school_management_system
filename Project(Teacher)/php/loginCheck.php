@@ -1,7 +1,7 @@
 <?php
 include('../model/db.php');
 session_start(); 
-
+$name="";
  $error="";
 // store session data
 if (isset($_POST['submit'])) {
@@ -22,6 +22,7 @@ $userQuery=$connection->checkUser($conobj,"teacherinfo",$id,$password);
 if ($userQuery->num_rows > 0) {
 $_SESSION["id"] = $id;
 $_SESSION["password"] = $password;
+include('../php/teacherHomeCheck.php');
 
    }
  else {

@@ -75,6 +75,13 @@
 		{
 			$userIdError = "fill up the field";
 		}
+		if(isset($userId)){
+			$leng = strlen($userId);
+		if ($leng[0]>='A'&& $leng[0]<='Z' || $leng[0]>='a'&& $leng[0]<='z')
+		{
+			$userIdError = "Invalid Id format";
+		}
+		}
 		
 		if (empty($pass))
 		{

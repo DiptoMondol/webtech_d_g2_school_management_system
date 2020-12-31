@@ -7,90 +7,89 @@ if(isset($_SESSION['id']))
 }else {
 	header("location:index.php");
 }
-	//session ends
+include ('../model/db.php');
+$connection = new db();
+$conobj=$connection->OpenCon();
+global $result;
+
+
+global $select;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+	
+	$select =  $_POST['select'];
+	
+	if($select == "Class-A"){
+		
+
+	$sql = "SELECT * FROM updategrade";
+	$result = $conobj->query($sql);
+	}
+
+	else {
+
+
+	$sql = "SELECT * FROM updategradeb";
+	$result = $conobj->query($sql);
+
+	}	
+
+	$connection->CloseCon($conobj); 
+}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	
-	<title>Update Grade</title>
+	<title>Class Page</title>
 	
 </head>
 <body>
-	
-	<table width="800px" border="1" align="center">
+	<form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	<table width="1000px" border="1" align="center">
 		 <?php include 'header.php';?>
-    <td>
-    	<center>
-    	<select>
+	<td>
+	<input type ="submit" value ="Submit">
+	<select name="select">
+		<option value="select-class">select-class</option>
 		<option value="Class-A">Class-A</option>
 		<option value="Class-B">Class-B</option>
-		<option value="Class-C">Class-C</option>
-		<option value="Class-D">Class-D</option>
-	   </select>
-	   </center>
-	<table border="1"  cellspacing="0" align="center">
-		<tr>
+	</select>
+    
+	<table border=1 cellspacing="0">
+	    <thead>
 			<th>#SI</th>
 			<th>Name</th>
 			<th>Id</th>
 			<th>Grade</th>
 			<th>Action</th>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>Dipto</td>
-			<td>17-34833</td>
-			<th>A+</th>
-			<td>
-				<button>Update</button>
-
-			</td>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>Reza</td>
-			<td>17-34539-2</td>
-			<th>A+</th>
-			<td>
-				<button>Update</button>
-
-			</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>Bijay</td>
-			<td>17-34634-2</td>
-			<th>B+</th>
-			<td>
-				<button>Update</button>
-
-			</td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td>Foyaz</td>
-			<td>17-34643-2</td>
-			<th>B+</th>
-			<td>
-				<button>Update</button>
-
-			</td>
-		</tr>
-		<tr>
-			<td>5</td>
-			<td>Alimul</td>
-			<td>17-34653-2</td>
-			<th>B+</th>
-			<td>
-				<button>Update</button>
-
-			</td>
-		</tr>
-		
+		</thead>
+		 <tbody>    
 			
-	 </table> 
+				<?php
+				 if($select == "Class-A" || $select == "Class-B"){
+					if ($result->num_rows > 0) {
+		
+		        while($row = $result->fetch_assoc()) {
+			  
+			 echo "<tr>";
+			echo "<td>$row[serial]</td> 
+			      <td>$row[name]</td>
+			      <td>$row[id]</td>
+			      <td>$row[grade]</td>
+			      <td><a href=../control/deleteReaderInfoCheck.php?id=$row[id]>Delete</a><br></td>";
+			echo "</tr>";
+			
+	        }
+			
+		        }
+				 }
+				?>
+			
+		</tbody>
+	</table>
   </td>
- </table> 
+  </table>
+  </form>
 </body>
 </html>

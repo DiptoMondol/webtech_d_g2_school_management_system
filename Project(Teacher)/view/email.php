@@ -1,5 +1,6 @@
 <?php
 	//session starts
+include('../php/emailCheck.php');
 session_start();
 if(isset($_SESSION['id']))
 {
@@ -7,7 +8,7 @@ if(isset($_SESSION['id']))
 }else {
 	header("location:index.php");
 }
-	//session ends
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,18 +26,16 @@ if(isset($_SESSION['id']))
 	<select>
 		<option value="Class-A">Class-A</option>
 		<option value="Class-B">Class-B</option>
-		<option value="Class-C">Class-C</option>
-		<option value="Class-D">Class-D</option>
 	</select>
 	<table border="1" cellspacing="0">
 		<tr>
 		    <td>
-				<form>
+				<form method ="post">
 					<fieldset>
 						<legend><h2><b>Email</b></h2></legend>
-						From:<input type="text" name="from"></br>
+						From:<input type="text" name="from" value="<?php echo "hasibul12@gmail.com";?>"></br>
 						<hr>
-						To:<input type="text" name="to"></br>
+						To:<input type="text" name="to" value="<?php echo "student@gmail.com";?>"></br>
 						<hr>
 						Subject:<input type="text" name="subject"></br>
 						<hr>

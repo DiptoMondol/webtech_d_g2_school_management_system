@@ -15,6 +15,7 @@ function OpenCon()
  {
 $result = $conn->query("SELECT * FROM ". $table." WHERE id='". $id."' AND password='". $password."'");
  return $result;
+ 
  }
  function UserInfoTable($conn,$name,$email,$userId,$password,$user,$gender,$phone)
  
@@ -29,7 +30,32 @@ $result = $conn->query("SELECT * FROM ". $table." WHERE id='". $id."' AND passwo
 	 $query = "SELECT * FROM `teacherinfo` WHERE `id` = '$id'";
 	 return $query;
  }
+  function SendEmail($conn,$from,$to,$subject,$message)
  
+ {   
+	 $qry = "INSERT INTO emaila (frm, sendto,subject,body) 
+      VALUES('$from','$to','$subject','$message')";
+	  
+	  return $qry;
+ }
+ function GetUserByID($conn,$table, $id)
+ {
+$result = $conn->query("SELECT * FROM  $table WHERE id='$id'");
+ return $result;
+ }
+ 
+ function checkOwnProfile($conn,$id)
+ 
+ {
+	 $result = $conn->query("SELECT * from teacherinfo WHERE id='" . $id."'");
+	 return $result;
+ }
+  function updateOwnProfile($conn,$name,$email,$id,$password,$gender,$phone)
+ 
+ {
+	$sql = $conn->query( "UPDATE teacherinfo set name='". $name."', email='". $email."',password='". $password."',gender='". $gender."', phone='". $phone."' WHERE id='". $id ."'"); 
+	return $sql;
+ }
 
  function CloseCon($conn)
  {

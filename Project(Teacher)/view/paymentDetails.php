@@ -7,54 +7,67 @@ if(isset($_SESSION['id']))
 }else {
 	header("location:index.php");
 }
-	//session ends
+include ('../model/db.php');
+$connection = new db();
+$conobj=$connection->OpenCon();
+global $result;
+
+
+
+
+
+		
+
+	$sql = "SELECT * FROM paymentdetails";
+	$result = $conobj->query($sql);
+	
+
+	$connection->CloseCon($conobj); 
+
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Payment Details </title>
+	
+	<title>Class Page</title>
+	
 </head>
 <body>
-	<table width="800px" border="1" align="center">
+	<form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	<table width="1000px" border="1" align="center">
 		 <?php include 'header.php';?>
 	<td>
-	<center>
-	<table border="1" cellspacing="0">
-			<tr>
-				<th>Date</th>
-				<th>Amount Received</th>
-			</tr>
-			<tr>
-				<td>11-02-20</td>
-				<td>22,000/=</td>
-			</tr>
-			<tr>
-				<td>21-04-20</td>
-				<td>22,000/=</td>
-			</tr>
-			<tr>
-				<td>05-05-20</td>
-				<td>22,000/=</td>
-			</tr>
-			<tr>
-				<td>05-06-20</td>
-				<td>22,000/=</td>
-			</tr>
-			<tr>
-				<td>07-07-20</td>
-				<td>22,000/=</td>
-			</tr>
-			<tr>
-				<td>05-08-20</td>
-				<td>22,000/=</td>
-			</tr>
-			<tr>
-				<td>06-09-20</td>
-				<td>25,000/=</td>
-			</tr>
+    
+	<table border=1 cellspacing="0">
+	    <thead>
+			<th>Date</th>
+			<th>Amount Received</th>
+			
+		</thead>
+		 <tbody>    
+			
+				<?php
+				
+					if ($result->num_rows > 0) {
+		
+		        while($row = $result->fetch_assoc()) {
+			  
+			 echo "<tr>";
+			echo "<td>$row[date]</td> 
+			      <td>$row[amountreceived]</td>";
+			echo "</tr>";
+			
+	        }
+			
+		        }
+				 
+				?>
+			
+		</tbody>
 	</table>
-</center>
-</td>
-</table>
+  </td>
+  </table>
+  </form>
 </body>
 </html>
+
