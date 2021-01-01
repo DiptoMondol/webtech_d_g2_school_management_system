@@ -1,6 +1,5 @@
 <?php
 
-include ('../model/db.php');
 $id = $_SESSION["id"];
 $connection = new db();
 $conobj=$connection->OpenCon();

@@ -7,7 +7,7 @@ if(isset($_SESSION['id']))
 }else {
 	header("location:index.php");
 }
-	//session ends
+include('../php/noticeCheck.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,15 +21,13 @@ if(isset($_SESSION['id']))
 		 <?php include 'header.php';?>
 	<td>
 		<h1 align="center">Notice For Students</h1>
-		<form method="" align = "center">
-			<select>
-				<option value="Class-A">Class-A</option>
+		<form method="post" align = "center">
+			<select name="class">
+				<option value="Class-A" >Class-A</option>
 				<option value="Class-B">Class-B</option>
-				<option value="Class-C">Class-C</option>
-				<option value="Class-D">Class-D</option>
 			</select><br>
 			<textarea name="notice" id="" cols="30" rows="10" placeholder="notice"></textarea><br>
-			<input type="submit" name="notice" value="Send">
+			<input type="submit" name="submit" value="Send">
 		</form>
 	</td>
   </table>

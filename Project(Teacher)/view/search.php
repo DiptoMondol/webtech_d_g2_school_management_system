@@ -7,7 +7,7 @@
 	}else {
 		header("location:login.php");
 	}
-	include('../php/teacherHomeCheck.php');
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +27,7 @@ function showmyuser() {
 		 document.getElementById("mytext").innerHTML = this.status;
 	}
   };
-  xhttp.open("POST", "/mycode/dipto1/php/getuser.php", true);
+  xhttp.open("POST", "/dipto/php/getuser.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("id="+id);
 

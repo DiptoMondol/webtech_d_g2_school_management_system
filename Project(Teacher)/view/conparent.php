@@ -1,5 +1,6 @@
 <?php
 global $id;	
+global $select;
 session_start();
 if(isset($_SESSION['id']))
 {
@@ -14,7 +15,8 @@ $conobj=$connection->OpenCon();
 global $result;
 
 
-global $select;
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	
@@ -34,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 	$result = $conobj->query($sql);
 
 	}	
-
+	
 	$connection->CloseCon($conobj); 
 }
 ?>
@@ -62,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			<th>Name</th>
 			<th>Email</th>
 			<th>Phone</th>
-			<th>Action</th>
+			
 		</thead>
 		 <tbody>    
 			
@@ -75,8 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			 echo "<tr>";
 			echo "<td>$row[name]</td> 
 			      <td>$row[email]</td>
-			      <td>$row[phone]</td>
-			      <td><a href=../php/deleteParentInfoCheck.php?id=$row[name]>Delete</a><br></td>";
+			      <td>$row[phone]</td>";
+			      
 			echo "</tr>";
 			
 	        }

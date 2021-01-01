@@ -19,7 +19,7 @@
 <body>
 <div class="wholereg_wrapper"></div>
 <center>
-<form method ="post" action="">
+<form method ="post" action="" >
 	<table border="0" cellspacing="0" cellpadding="0" class="reg_wrapeer">
 		<tr>
 			<td  width="600px">
@@ -28,13 +28,13 @@
 					<h4 id="head"></h4>
 					Name<br/><input type="text" name ="name" id="name" onkeyup="NameValidation()"><?php echo $nameError;?><?php echo $nameValid ;?><br/><br/>
 					<hr>
-					Email<br/><input type="text" id="email" name="email" value="" onkeyup="EmailValidation()"><?php echo $emailErr;?><br/><br/>
+					Email<br/><input type="text" name="email" id="email"  value="" onkeyup="EmailValidation()"><?php echo $emailErr;?><br/><br/>
 					<hr>
 					Id<br/><input type="text" name="id" id="id"  onkeyup="IdValidation()"><?php echo $userIdError;?><br/><br/>
 					<hr>
-					Password<br/><input type="password" name ="password"><?php echo $passError;?><br/><br/><br/>
+					Password<br/><input type="password" name ="password" id="password" onkeyup="PasswordValidation()"><?php echo $passError;?><br/><br/><br/>
                     <hr>																				 
-					Confirm Password<br/><input type ="password" name ="cpassword"><?php echo $cPassError;?><br/><br/>
+					Confirm Password<br/><input type ="password" name ="cpassword" id="cpassword" ><?php echo $cPassError;?><br/><br/>
 					<hr>
 					User Type
 					<input type="radio" name="user" value="Admin"/ >Admin

@@ -54,7 +54,7 @@ global $result;
 			      <td>$row[name]</td>
 			      <td>$row[id]</td>
 			      <td>$row[grade]</td>
-				  <td><a href=../control/deleteReaderInfoCheck.php?id=$row[id]>Delete</a><br></td>";
+				  <td><a href=../php/gradeDeleteCheck.php?id=$row[id]>Delete</a><br></td>";
 			echo "</tr>";
 			
 	        }

@@ -77,11 +77,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			      <td>$row[name]</td>
 			      <td>$row[id]</td>
 			      <td>$row[grade]</td>
-			      <td><a href=../control/deleteReaderInfoCheck.php?id=$row[id]>Delete</a><br></td>";
+			      <td><a href=changeGrade.php?id=$row[id]>Update</a><br></td>";
 			echo "</tr>";
-			
 	        }
-			
 		        }
 				 }
 				?>

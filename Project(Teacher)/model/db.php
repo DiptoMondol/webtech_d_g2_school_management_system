@@ -56,7 +56,54 @@ $result = $conn->query("SELECT * FROM  $table WHERE id='$id'");
 	$sql = $conn->query( "UPDATE teacherinfo set name='". $name."', email='". $email."',password='". $password."',gender='". $gender."', phone='". $phone."' WHERE id='". $id ."'"); 
 	return $sql;
  }
+ function deleteStudentGradeInfo($conn,$id)
+ 
+ {
+	 $sql = $conn->query("DELETE FROM grade WHERE id= '".$id."'");
+	 return $sql;
 
+ }
+ function checkGrade($conn, $id){
+  $result = $conn->query("SELECT * from updategrade WHERE id='" .$id."'");
+  return $result;
+ }
+  function updateGrade($conn,$serial,$name,$id,$grade)
+ 
+ {
+	$sql = $conn->query( "UPDATE updategrade set serial='". $serial."', name='". $name."',grade='". $grade."' WHERE id='". $id ."'"); 
+	return $sql;
+ }
+ function insertNoticea($conn,$notice)
+ 
+ {   echo $notice;
+	 $qry = "INSERT INTO noticea (notice) 
+      VALUES('$notice')";
+	  
+	  return $qry;
+ }
+ function insertNoticeb($conn,$notice)
+ 
+ {   
+	 $qry = "INSERT INTO noticeb (notice) 
+      VALUES('$notice')";
+	  
+	  return $qry;
+ }
+ 
+  function deleteParentInfoa($conn,$name)
+ 
+ {
+	 $sql = $conn->query("DELETE FROM contactparent WHERE name= '".$name."'");
+	 return $sql;
+
+ }
+   function deleteParentInfob($conn,$name)
+ 
+ {
+	 $sql = $conn->query("DELETE FROM contactparentb WHERE name= '".$name."'");
+	 return $sql;
+
+ }
  function CloseCon($conn)
  {
  $conn -> close();

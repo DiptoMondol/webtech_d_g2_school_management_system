@@ -7,7 +7,33 @@
 	}else {
 		header("location:index.php");
 	}
-	//session ends
+	
+  $db = mysqli_connect("localhost", "root", "", "webtech");
+
+  
+  $msg = "";
+
+  if (isset($_POST['upload'])) {
+
+  	$image = $_FILES['image']['name'];
+  	$image_text = mysqli_real_escape_string($db, $_POST['image_text']);
+
+  
+  	$target = "../files/".basename($image);
+
+  	$sql = "INSERT INTO notes (notes, notes_text) VALUES ('$image', '$image_text')";
+  	
+  	mysqli_query($db, $sql);
+
+  	if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+  		$msg = "Image uploaded successfully";
+		echo $msg;
+  	}else{
+  		$msg = "Failed to upload image";
+  	}
+  }
+  
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,23 +48,24 @@
  	<td>
  	<center>
 	<h1>Notes For Students</h1>
-	<select>
-		<option value="Class-A">Class-A</option>
-		<option value="Class-B">Class-B</option>
-		<option value="Class-C">Class-C</option>
-		<option value="Class-D">Class-D</option>
-	</select>
-	    <form>
+	    <form method="POST" action="notes.php" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>
 					<fieldset>
 						<legend><b>File</b></legend>
-			            <input type="file" name="fileToUpload" id="fileToUpload"><br>
-			            <input type="submit" value="Upload File" name="submit">
+						<input type="hidden" name="size" value="1000000">
+			            <input type="file" name="image">
+					<textarea 
+						id="text" 
+						cols="40" 
+						rows="4" 
+						name="image_text" 
+						placeholder="Say something about this image...">
+					</textarea>
+			            <button type="submit" name="upload">POST</button>
 
-		          </fieldset>
-		     
+		            </fieldset>
 				</td>
 			</tr>
 	

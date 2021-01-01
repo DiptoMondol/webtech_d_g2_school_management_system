@@ -41,6 +41,20 @@ else{
 
 }
 
+function PasswordValidation(){
+	let data= document.getElementById('password').value;
+	let dataone= document.getElementById('cpassword').value;
+	if(data.length <6){
+		document.getElementById('head').innerHTML = 'Invalid Password';
+	}
+	
+	else{
+		document.getElementById('head').innerHTML = data;
+	}
+	
+	
+}
+
 function EmailValidation()
 {
 	let data= document.getElementById('email').value;
@@ -65,18 +79,16 @@ function EmailValidation()
 	}
 
 }
-/*
+
 function GenderValidation()
 {
 
- let male = document.getElementById('male');
- let female = document.getElementById('female');
- let others = document.getElementById('others');
 
-     if(male.checked ==true ){
-		document.getElementById('head').innerHTML = male.value;		
+
+    if(document.getElementById('male').checked ==true ){
+	document.getElementById('head').innerHTML = "male.value";		
 	}
-    else if(female.checked ==true){
+    else if(document.getElementById('female').checked ==true){
 		document.getElementById('head').innerHTML = female.value;		
 	}
 	
@@ -98,5 +110,3 @@ function NumberValidation(){
 	}
 	
 }
-
-/*

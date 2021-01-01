@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			<th>Gender</th>
 			<th>Phone</th>
 			<th>Grade</th>
-			<th>Action</th>
+			
 		</thead>
 		 <tbody>    
 			
@@ -86,8 +86,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 				  <td>$row[parentemail]</td>
 			      <td>$row[gender]</td>
 			      <td>$row[phone]</td>
-			      <td>$row[grade]<br></td>
-			      <td><a href=../control/deleteReaderInfoCheck.php?id=$row[id]>Delete</a><br></td>";
+			      <td>$row[grade]<br></td>";
+			      
 			echo "</tr>";
 			
 	        }

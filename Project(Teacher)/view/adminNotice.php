@@ -7,7 +7,16 @@ if(isset($_SESSION['id']))
 }else {
 	header("location:index.php");
 }
-	//session ends
+include ('../model/db.php');
+$connection = new db();
+$conobj=$connection->OpenCon();
+global $result;
+
+$sql = "SELECT * FROM adminnotice";
+$result = $conobj->query($sql);
+	
+
+$connection->CloseCon($conobj); 
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,14 +34,25 @@ if(isset($_SESSION['id']))
 		<form method="" align = "center">
 			<center>
 			<table border="1" cellspacing="0" width="500px" height="300px">
-				
-				
-					
-					<tr>
-						<td >There is no new notice</td>
-					</tr>
-				
+			<tbody>    
 			
+				<?php
+				
+					if ($result->num_rows > 0) {
+		
+		        while($row = $result->fetch_assoc()) {
+			  
+					echo "<tr>";
+					echo "<td>$row[notice]</td>" ;
+					echo "</tr>";
+			
+							}
+			
+							}
+				 
+				?>
+			
+		</tbody>
 			</table>
 		</center>
 			</form>			
