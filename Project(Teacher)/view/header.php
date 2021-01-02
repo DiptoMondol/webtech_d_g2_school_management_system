@@ -1,11 +1,19 @@
-            <tr colspan="3">
-            	    <td align="center"><a href="teacher_home.php">Teacher</a></td>
-					<td colspan="2" align="center"><h1>Welcome <?php echo $id; ?>!</h1></td>
+            <tr>
+					<td id="header" colspan="2" align="center" height="20px;"><h1>
+					Welcome <?php 
+						echo $_COOKIE['userName']; 
+					?><br>
+					<?php echo $id; ?>!
+					</h1></td>
 			</tr>
 			<tr width="200px">	
-				<td width="200px">
+				<td class="left_content" width="200px">
 
 					<ul>
+						<li>	
+							<a href="search.php">Search</a>
+							<br>
+						 </li>
 						<li>
 							<a href="profile.php">Profile</a>
 							<br/>

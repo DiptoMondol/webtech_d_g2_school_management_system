@@ -15,19 +15,25 @@
 <html>
 	<head>
 		<title>Teacher Profile</title>
+		<link rel="stylesheet" href="../assets/css/teacherdesign.css" />
 	</head>
 	<body>
 		
-			<table width="1000px" border="1" align="center">	
+			<table class="teacherhome_design" width="100%" border="1" align="center">	
 				<?php include 'header.php';?>
 						<td width ="800px" height ="500px">	
-									<table align="center">
+									<table align="center" >
 										<tr>
+											
 		
+											<td></td>
+											<td></td>
+											<td><img src="../assets/d.jpg" alt="" /></td>
+											<td></td>
+										</tr>
+										<tr>
 											<td>User Id:</td>
 											<td><?php echo $id;?></td>
-											<td></td>
-											<td></td>
 										</tr>
 										<tr>
 											<td colspan="3"><hr></td>
@@ -87,6 +93,11 @@
 							
 						</td>
 					</tr>
+					<tr>
+					<td class="footer_design" colspan="2" align="center" height="30px;"><h3>“Give me an educated mother, I shall promise you the birth of a civilized, educated nation.”<br>
+— Napoleon</h3></td>
+					
+			</tr>	
 					
 			</table>
 					

@@ -42,13 +42,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
 	
 	<title>Class Page</title>
-	
+	<link rel="stylesheet" href="../assets/css/teacherdesign.css" />
 </head>
 <body>
 	<form method ="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	<table width="1000px" border="1" align="center">
+	<table class="teacherhome_design" width="100%" border="1" align="center">
 		 <?php include 'header.php';?>
 	<td>
+	<center>
+	<h2 align="center">Update Grade</h2>
 	<input type ="submit" value ="Submit">
 	<select name="select">
 		<option value="select-class">select-class</option>
@@ -62,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			<th>Name</th>
 			<th>Id</th>
 			<th>Grade</th>
-			<th>Action</th>
+
 		</thead>
 		 <tbody>    
 			
@@ -76,8 +78,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			echo "<td>$row[serial]</td> 
 			      <td>$row[name]</td>
 			      <td>$row[id]</td>
-			      <td>$row[grade]</td>
-			      <td><a href=changeGrade.php?id=$row[id]>Update</a><br></td>";
+			      <td>$row[grade]</td>";
+			      
 			echo "</tr>";
 	        }
 		        }
@@ -86,7 +88,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 			
 		</tbody>
 	</table>
+	</center>
   </td>
+  <tr>
+					<td class="footer_design" colspan="2" align="center" height="30px;"><h3>“Give me an educated mother, I shall promise you the birth of a civilized, educated nation.”<br>
+— Napoleon</h3></td>
+					
+			</tr>	
   </table>
   </form>
 </body>

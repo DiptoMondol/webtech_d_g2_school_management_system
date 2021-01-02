@@ -23,10 +23,11 @@ $connection->CloseCon($conobj);
 <head>
 	
 	<title>Admin Notice</title>
+	<link rel="stylesheet" href="../assets/css/teacherdesign.css" />
 	
 </head>
 <body>
-	<table width="900px" border="1" align="center">
+	<table class="teacherhome_design" width="100%" border="1" align="center">
 		 <?php include 'header.php';?>
 	<td>
 	<center>
@@ -57,9 +58,18 @@ $connection->CloseCon($conobj);
 		</center>
 			</form>			
 			
-		</form>
+		
 	</center>
 </td>
+<tr>
+					<td class="footer_design" colspan="2" align="center" height="30px;"><h3>“Give me an educated mother, I shall promise you the birth of a civilized, educated nation.”<br>
+— Napoleon</h3></td>
+					
+			</tr>
+</form>
+
+
 </table>
+
 </body>
 </html>

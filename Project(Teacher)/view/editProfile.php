@@ -13,6 +13,8 @@ if(!isset($_SESSION['id']))
 
 
 $id = $_SESSION["id"];
+
+
 $error="";
 
 
@@ -25,13 +27,100 @@ $row = mysqli_fetch_array($sql);
 include '../php/ownProfileValidattion.php';
 include('../php/editProfileCheck.php');
 ?>
-<html>
 
-<head></head>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Teacher Page</title>
+<link rel="stylesheet" href="../assets/css/teacherdesign.css" />
+</head>
 <body>
-<center>
-<form method ="post" action="">
-	<table border="0" cellspacing="0" cellpadding="0">
+	<center>
+		<table class="teacherhome_design" border="1" cellspacing="0" width="100%">
+			<tr>
+					<td id="header" colspan="2" align="center" height="20px;"><h1>
+					Welcome <?php 
+						echo $_COOKIE['userName']; 
+					?><br>
+					<?php echo "Dipto123"; ?>!
+					</h1></td>
+			</tr>	
+			<tr>	
+				<td width="100px" class="left_content">
+
+					<ul>
+						<li>	
+							<a href="search.php">Search</a>
+							<br>
+						 </li>
+						<li>
+							<a href="profile.php">Profile</a>
+							<br/>
+						</li>
+						<li>
+							<a href="grade.php">Grade</a>
+							<br/>
+						</li>
+						<li>	
+							<a href="notes.php">Notes</a>
+							<br/>
+						 </li>
+						 <li>
+							<a href="notice.php">Notice</a>
+							<br>
+						</li>
+						<li>	
+							<a href="class.php">Student Details</a>
+							<br>
+						 </li>
+						 <li>	
+							<a href="classSchedule.php">Class Schedule</a>
+							<br>
+						 </li>
+						 <li>	
+							<a href="updateGrade.php">Update/Change Grade </a>
+							<br>
+						 </li>
+						 <li>	
+							<a href="attendance.php">Student Attendance</a>
+							<br>
+						 </li>
+						 <li>	
+							<a href="email.php">Email</a>
+							<br>
+						 </li>
+						 <li>	
+							<a href="conparent.php">Contact with Parent</a>
+							<br>
+						 </li>
+						 </li>
+						 <li>	
+							<a href="salaryhistory.php">Salary</a>
+							<br>
+						 </li>
+						 <li>	
+							<a href="adminNotice.php">Admin Notice </a>
+							<br>
+						 </li>
+						  <li>	
+							<a href="paymentDetails.php">Payment Details</a>
+							<br>
+						 </li>
+							
+						 
+						 <li>
+							<a href="../php/logout.php">logout</a>
+							<br>
+						 </li>
+
+					</ul>
+					
+					
+			    </td>
+			    <td class="body_design" width ="600px" height="400px">
+				<center>
+				<form method="post">
+					<table border="0" cellspacing="0" cellpadding="0">
 		<tr>
 			<td width="600px">
 				<fieldset>
@@ -76,7 +165,24 @@ include('../php/editProfileCheck.php');
 			</td>
 		</tr>                                
 	</table>
-</form>
+	</form>
+	</center>
+				</td>
+            </tr> 
+			<tr>
+					<td class="footer_design" colspan="2" align="center" height="30px;"><h3>“Give me an educated mother, I shall promise you the birth of a civilized, educated nation.”<br>
+— Napoleon</h3></td>
+					
+			</tr>			
+         </table>	
 </center>
 </body>
-</html>		
+</html>
+
+
+
+
+
+
+
+	

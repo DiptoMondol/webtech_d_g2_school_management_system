@@ -40,14 +40,14 @@
 <head>
 	
 	<title>Class Page</title>
-	
+	<link rel="stylesheet" href="../assets/css/teacherdesign.css" />
 </head>
 <body>
- <table width="800px" border="1" align="center">
+ <table class="teacherhome_design" width="100%" border="1" align="center">
  	<?php include 'header.php';?>
  	<td>
  	<center>
-	<h1>Notes For Students</h1>
+	<h2>Notes For Students</h2>
 	    <form method="POST" action="notes.php" enctype="multipart/form-data">
 		<table>
 			<tr>
@@ -55,25 +55,33 @@
 					<fieldset>
 						<legend><b>File</b></legend>
 						<input type="hidden" name="size" value="1000000">
-			            <input type="file" name="image">
+			            
 					<textarea 
 						id="text" 
-						cols="40" 
-						rows="4" 
+						cols="45" 
+						rows="10" 
 						name="image_text" 
 						placeholder="Say something about this image...">
 					</textarea>
-			            <button type="submit" name="upload">POST</button>
+					<input type="file" name="image">
+			            <center><button id="buttonpost" type="submit" name="upload">POST</button></center>
 
 		            </fieldset>
 				</td>
 			</tr>
 	
-	    </form>
+	   
 			
+	
 	    </table>
+		 </form>
 	   </center>
 	 </td>
+	 <tr>
+					<td class="footer_design" colspan="2" align="center" height="30px;"><h3>“Give me an educated mother, I shall promise you the birth of a civilized, educated nation.”<br>
+— Napoleon</h3></td>
+					
+		</tr>
    </table>
 </body>
 </html>

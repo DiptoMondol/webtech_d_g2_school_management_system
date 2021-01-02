@@ -7,10 +7,11 @@ if (isset($_POST['submit'])) {
 		$id = $_POST['id'];
 		$password = $_POST['password'];
 		$phone = $_POST['phone'];
+
 		$sql = db::updateOwnProfile($conobj,$name,$email,$id,$password, $_POST['gender'],$phone);
 		
 		if ($sql === TRUE) {
-		echo "Record updated successfully";
+		header('Location:../view/profile.php');
 		} else {
 		echo "Error updating record: " ;
 		}
